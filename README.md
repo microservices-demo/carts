@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/microservices-demo/carts.svg?branch=master)](https://travis-ci.org/microservices-demo/carts) [![Coverage Status](https://coveralls.io/repos/github/microservices-demo/carts/badge.svg?branch=master)](https://coveralls.io/github/microservices-demo/carts?branch=master)
 # cart
 A microservices-demo service that provides shopping carts for users.
 
