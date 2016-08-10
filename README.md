@@ -1,5 +1,5 @@
 # cart
-A microservices-demo service that provides user account information.
+A microservices-demo service that provides shopping carts for users.
 
 This build is built, tested and released by travis.
 
