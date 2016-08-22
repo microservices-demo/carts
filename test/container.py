@@ -1,6 +1,7 @@
 import argparse
 import sys
 import unittest
+import os
 from util.Api import Api
 from time import sleep
 
@@ -39,7 +40,11 @@ class CartContainerTest(unittest.TestCase):
             limit = limit - 1
             sleep(1)
         
-        out = Dredd().test_against_endpoint("cart", "http://cart/", links=[self.mongo_container_name, self.container_name], env=[("MONGO_ENDPOINT", "mongodb://cart-db:27017/data")])
+        out = Dredd().test_against_endpoint(
+            "cart", "http://cart/",
+            links=[self.mongo_container_name, self.container_name],
+            env=[("MONGO_ENDPOINT", "mongodb://cart-db:27017/data")],
+            dump_streams=True)
         self.assertGreater(out.find("0 failing"), -1)
         self.assertGreater(out.find("0 errors"), -1)
         print(out)
@@ -50,6 +55,12 @@ if __name__ == '__main__':
     parser.add_argument('unittest_args', nargs='*')
     args = parser.parse_args()
     CartContainerTest.TAG = args.tag
+
+    try:
+        CartContainerTest.TAG = os.environ["TAG"]
+    except KeyError as e:
+        pass
+
     # Now set the sys.argv to the unittest_args (leaving sys.argv[0] alone)
     sys.argv[1:] = args.unittest_args
     unittest.main()
