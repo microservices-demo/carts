@@ -4,7 +4,7 @@ import os
 import unittest
 
 class Dredd:
-    image = 'weaveworksdemos/openapi'
+    image = 'weaveworksdemos/openapi:snapshot'
     container_name = ''
     def test_against_endpoint(self, service, api_endpoint, links=[], env=[], dump_streams=False):
         self.container_name = Docker().random_container_name('openapi')

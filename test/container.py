@@ -10,6 +10,7 @@ from util.Dredd import Dredd
 
 class CartContainerTest(unittest.TestCase):
     TAG = "latest"
+    COMMIT = ""
     container_name = Docker().random_container_name('cart')
     mongo_container_name = Docker().random_container_name('cart-db')
     def __init__(self, methodName='runTest'):
@@ -24,7 +25,7 @@ class CartContainerTest(unittest.TestCase):
                    '-h', 'cart',
                    '--link',
                    CartContainerTest.mongo_container_name,
-                   'weaveworksdemos/cart:' + self.TAG]
+                   'weaveworksdemos/cart:' + self.COMMIT]
         Docker().execute(command)
         self.ip = Docker().get_container_ip(CartContainerTest.container_name)
 
@@ -51,16 +52,16 @@ class CartContainerTest(unittest.TestCase):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--tag', default="latest", help='The tag of the image to use. (default: latest)')
+    default_tag = "latest"
+    parser.add_argument('--tag', default=default_tag, help='The tag of the image to use. (default: latest)')
     parser.add_argument('unittest_args', nargs='*')
     args = parser.parse_args()
     CartContainerTest.TAG = args.tag
 
-    try:
-        CartContainerTest.TAG = os.environ["TAG"]
-    except KeyError as e:
-        pass
+    if CartContainerTest.TAG == "":
+        CartContainerTest.TAG = default_tag
 
+    CartContainerTest.COMMIT = os.environ["COMMIT"]   
     # Now set the sys.argv to the unittest_args (leaving sys.argv[0] alone)
     sys.argv[1:] = args.unittest_args
     unittest.main()
