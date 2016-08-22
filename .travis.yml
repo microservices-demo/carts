@@ -27,7 +27,7 @@ after_success:
   - ./scripts/push.sh
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_71d9c8a3a58a_key -iv $encrypted_71d9c8a3a58a_iv
+- openssl aes-256-cbc -K $encrypted_71d9c8a3a58a_key -iv $encrypted_71d9c8a3a58a_iv
   -in cart_deploy_rsa.enc -out cart_deploy_rsa -d
 before_deploy:
   - eval "$(ssh-agent -s)"
