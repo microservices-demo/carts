@@ -15,6 +15,6 @@ LABEL org.label-schema.vendor="Weaveworks" \
   org.label-schema.url="https://github.com/microservices-demo/carts" \
   org.label-schema.vcs-url="github.com:microservices-demo/carts.git" \
   org.label-schema.vcs-ref="${COMMIT}" \
-  org.label-schema.docker.schema-version="1.0"
+  org.label-schema.schema-version="1.0"
 
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./app.jar", "--port=80"]
