@@ -12,8 +12,8 @@ LABEL org.label-schema.vendor="Weaveworks" \
   org.label-schema.version="${BUILD_VERSION}" \
   org.label-schema.name="Socks Shop: Cart" \
   org.label-schema.description="REST API for Cart service" \
-  org.label-schema.url="https://github.com/microservices-demo/cart" \
-  org.label-schema.vcs-url="github.com:microservices-demo/cart.git" \
+  org.label-schema.url="https://github.com/microservices-demo/carts" \
+  org.label-schema.vcs-url="github.com:microservices-demo/carts.git" \
   org.label-schema.vcs-ref="${COMMIT}" \
   org.label-schema.docker.schema-version="1.0"
 
