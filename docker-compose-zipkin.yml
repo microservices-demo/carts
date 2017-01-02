@@ -2,7 +2,7 @@ version: '2'
 
 services:
   carts:
-    image: cartstest
+    image: weaveworksdemos/carts
     hostname: carts
     restart: always
     cap_drop:
