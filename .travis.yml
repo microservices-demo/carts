@@ -35,13 +35,6 @@ before_deploy:
   - ssh-add $TRAVIS_BUILD_DIR/${REPO}_deploy_rsa
 addons:
   ssh_known_hosts: $BASTION
-deploy:
-  provider: script
-  skip_cleanup: true
-  # The deploy.sh file actually points to the deploy file on the bastion. Not one in the repo.
-  script: ssh -o StrictHostKeyChecking=no $BASTION_USER@$BASTION ./deploy.sh ${REPO} $COMMIT
-  on:
-    branch: master
 notifications:
   slack:
     secure: jHh+ksay1dxGEMxxep6XllCR5VwsmuSyIpLgG9bUKpG4fPR948K5Ev2E/vyobrqbTi5JMWasXd3ecwzV1QIN8QvvQ33Fx70oSp9Cit5gvNmLWVplHkWiMnnLD33IMCbtDHK69FjH3GQyJ5HfgjiJSF2nTFaCArYImrCcnU+ENTXW9L3rlYm5ElnP/NfWbrqxIF4EOiCKHMM5kpFYWO8mYLTVilHhPLAz94IVV2OUTe4NUdBJgXolAJqg28QTcfrk5x0OudDTc3Ssa3f/ezrE0LgrzeWdekcrNdYt+YZYaQxiPOIhNyZu0RxU+46ip4XhUS6qSXxW1Kpf0RXkgdmTTbYxF31D4GG+SoTjbBONZqK+qw3AkuYxTQYZnl50n+Hd1gtKY31qCwFEAVUU/tYDI5oKUdUaDsiHU5J/Yt+YMPoyWZ7FOZYwSNy2xs78XGXqQnYn35lsBv0BmYo/1mPUFbrlZgVO5b5wki7NhuLKnqHo9GvkavG71py1VjJTShq5um4NrPBYZ/Y9aZtZD6E2BQPJBgciwGtoFdmaTzmPtwPkWMA+SlcAtpcQlFATXM7xS5324XYK9+okDoqybj1cmHIk1FLnM9nx3r+TUOGsUrlY2ZO9FIrljgII3H8vzcUCbwMwzaQvhsBCFBFZQ6umjbHxnRN9zRe52c4zkkCSAZc=
