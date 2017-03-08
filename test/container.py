@@ -11,7 +11,7 @@ from util.Dredd import Dredd
 class CartContainerTest(unittest.TestCase):
     TAG = "latest"
     COMMIT = ""
-    container_name = Docker().random_container_name('cart')
+    container_name = Docker().random_container_name('carts')
     mongo_container_name = Docker().random_container_name('cart-db')
     def __init__(self, methodName='runTest'):
         super(CartContainerTest, self).__init__(methodName)
@@ -22,10 +22,10 @@ class CartContainerTest(unittest.TestCase):
         command = ['docker', 'run',
                    '-d',
                    '--name', CartContainerTest.container_name,
-                   '-h', 'cart',
+                   '-h', 'carts',
                    '--link',
                    CartContainerTest.mongo_container_name,
-                   'weaveworksdemos/cart:' + self.COMMIT]
+                   'weaveworksdemos/carts:' + self.COMMIT]
         Docker().execute(command)
         self.ip = Docker().get_container_ip(CartContainerTest.container_name)
 
@@ -42,7 +42,7 @@ class CartContainerTest(unittest.TestCase):
             sleep(1)
         
         out = Dredd().test_against_endpoint(
-            "cart", "http://cart/",
+            "carts", "http://carts/",
             links=[self.mongo_container_name, self.container_name],
             env=[("MONGO_ENDPOINT", "mongodb://cart-db:27017/data")],
             dump_streams=True)
