@@ -29,7 +29,7 @@ public class HealthCheckController {
        Date dateNow = Calendar.getInstance().getTime();
 
        HealthCheck app = new HealthCheck("cart", "OK", dateNow);
-       HealthCheck database = new HealthCheck("cart-db", "OK", dateNow);
+       HealthCheck database = new HealthCheck("carts-db", "OK", dateNow);
 
        try {
           mongoTemplate.executeCommand("{ buildInfo: 1 }");
