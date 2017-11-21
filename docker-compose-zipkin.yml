@@ -15,6 +15,7 @@ services:
     environment:
       - reschedule=on-node-failure
       - ZIPKIN=zipkin
+      - ZIPKIN_ENABLED=true
     ports:
       - "8081:80"
   zipkin:
