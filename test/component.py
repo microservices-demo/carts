@@ -11,7 +11,7 @@ class JavaServices(unittest.TestCase):
         code_dir = script_dir + "/.."
         home = expanduser("~")
         command = ['docker', 'run', '--rm', '-v', home + '/.m2:/root/.m2', '-v', code_dir + ':/usr/src/mymaven', '-w',
-                   '/usr/src/mymaven', 'maven:3.2-jdk-8', 'mvn', 'integration-test']
+                   '/usr/src/mymaven', 'maven:3.6-jdk-11', 'mvn', 'integration-test']
         print(Docker().execute(command))
 
 
