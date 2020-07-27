@@ -51,7 +51,7 @@ public class BeanConfiguration {
 
             @Override
             public Item findOne(String id) {
-                return itemRepository.findOne(id);
+                return itemRepository.findById(id).orElse(null);
             }
         };
     }

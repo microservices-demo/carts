@@ -3,7 +3,7 @@ sudo: required
 services:
   - docker
 jdk:
-  - oraclejdk8
+  - oraclejdk11
 install: true
 
 env:
@@ -15,6 +15,10 @@ script:
 
 after_success:
   - set -e;
+  - if [ -z "$DOCKER_PASS" ] ; then
+    echo "This is a build triggered by an external PR. Skipping docker push.";
+    exit 0;
+    fi;
   - docker login -u $DOCKER_USER -p $DOCKER_PASS;
   - ./scripts/push.sh
 notifications:
