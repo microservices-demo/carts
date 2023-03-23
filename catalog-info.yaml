@@ -2,8 +2,6 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: carts
-  annotations:
-    github.com/project-slug: pengjiang80/carts
 spec:
   type: service
   lifecycle: experimental
