@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: carts
+  annotations:
+    github.com/project-slug: pengjiang80/carts
+spec:
+  type: other
+  lifecycle: unknown
+  owner: peng jiang
