@@ -2,6 +2,8 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: carts
+  annotations:
+    jira/project-key: CARTS
 spec:
   type: service
   lifecycle: experimental
