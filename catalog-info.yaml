@@ -1,10 +1,11 @@
 apiVersion: backstage.io/v1alpha1
-kind: Service
+kind: Component
 metadata:
   name: carts
   annotations:
     github.com/project-slug: pengjiang80/carts
 spec:
-  type: other
-  lifecycle: pre-production
+  type: service
+  lifecycle: experimental
   owner: peng jiang
+  system: socks-shop
