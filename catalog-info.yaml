@@ -8,5 +8,5 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: peng jiang
+  owner: team-a
   system: socks-shop
