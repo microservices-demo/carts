@@ -4,6 +4,7 @@ metadata:
   name: carts
   annotations:
     jira/project-key: CARTS
+    github.com/project-slug: 'pengjiang80/carts'
 spec:
   type: service
   lifecycle: experimental
