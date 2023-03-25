@@ -5,6 +5,7 @@ metadata:
   annotations:
     jira/project-key: CARTS
     github.com/project-slug: 'pengjiang80/carts'
+    backstage.io/kubernetes-id: carts
 spec:
   type: service
   lifecycle: experimental
