@@ -24,7 +24,9 @@ else
 fi
 CODE_DIR=$(cd $SCRIPT_DIR/..; pwd)
 echo $CODE_DIR
-$DOCKER_CMD run --rm -v $HOME/.m2:/root/.m2 -v $CODE_DIR:/usr/src/mymaven -w /usr/src/mymaven maven:3.6-jdk-11 mvn -q -DskipTests package
+$DOCKER_CMD run --rm -v $HOME/.m2:/root/.m2 -v $CODE_DIR:/usr/src/mymaven -w /usr/src/mymaven maven:3.8.5-openjdk-18 mvn -q -e -DskipTests package
+
+echo $(ls -lt $CODE_DIR/target/*.jar)
 
 cp $CODE_DIR/target/*.jar $CODE_DIR/docker/carts
 
