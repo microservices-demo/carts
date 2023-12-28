@@ -21,6 +21,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <prometheus.version>0.0.21</prometheus.version>
+        <sonar.host.url>http://172.16.238.77:9000/</sonar.host.url>
+        <sonar.login>4ea9f2df381af07164b1c6d514f159ee9adc2c0b</sonar.login>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
